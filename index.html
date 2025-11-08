@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .change {
+            color: aqua;
+        }
+    </style>
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <div id="box1" class="change">Box 1</div>
+
+    <div class="boxes-wrap">
+    <div class="boxes">Baris Pertama</div>
+    <div class="boxes">Baris Kedua</div>
+    <div class="boxes">Baris dua koma 5</div>
+    <div class="boxes">Baris Ketiga</div>
+    </div>
+
+    <form action="">
+        <input type="text" name="" id="inputText">
+        <input type="submit" name="" id="">
+    </form>
+
+
+    <script>
+        $(document).ready(function () {
+            $('h1').css('color','blue')
+
+            $('.boxes').css('color', 'red')
+            $('.boxes:first').css('color', 'orange')
+            $('.boxes:last').css('color', 'purple')
+            $('.boxes:eq(2)').css('color', 'purple')
+
+
+        //event
+
+        $('h1').click(function() {
+            $('h1').css({'color': 'red',
+            'background' : 'yellow',
+            'fontFamily' : 'arial'
+            })
+        });
+
+        $('#box1').click(function() {
+            $('#box1').toggleClass('change')
+        })
+        $('h1').mouseenter(function() {
+            $('h1').css('color', 'yellow')
+        });
+        $('h1').mouseleave(function() {
+            $('h1').css('color', 'green')
+        });
+        $('.boxes').mouseenter(function () {
+            $(this).css('color', 'aqua')
+        });
+
+
+        // get dan set
+
+        $('form').submit(function () {
+        let tulisan = ( $('#inputText').val())  
+        $('h1').text(tulisan)
+        event.preventDefault();
+        })
+
+
+        //menambah dan penghapus
+        $('.boxes-wrap').append('<div>Halo</div>')
+
+
+
+        //remove dan empty
+          $('.boxes-wrap').empty()
+        });
+
+
+       
+
+    </script>
+
+</body>
+</html>
